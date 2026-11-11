@@ -1,16 +1,14 @@
-import { Module } from '@nestjs/common';
-import { createObserveModule } from '@nestjs/observe';
+// Это корневой модуль приложения (AppModule). Это «главный щиток управления» или «скелет», к которому будут подключаться все остальные части бэкенда (база данных, контроллеры, сервисы, настройки).
 
-export const { ObserveModule, ObserveInstrument } = createObserveModule();
+import { Module } from '@nestjs/common';
+import { IS_DEV_ENV } from '@/libs/common/utils/is-dev.utils.js';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [
-    // Distributed tracing, auto-correlated logs, request/job metrics, error
-    // telemetry, alarms, and more — out of the box. Sign up at https://observe.nestjs.com
-    ObserveModule.forRoot({
-      appKey: 'YOUR_APP_KEY',
-      appSecret: 'YOUR_APP_SECRET',
-      serviceId: 'nestjs-server',
+  imports: [//Массив imports (список того, что использует этот модуль)
+    ConfigModule.forRoot({
+      ignoreEnvFile: !IS_DEV_ENV,
+      isGlobal: true,
     }),
   ],
 })
