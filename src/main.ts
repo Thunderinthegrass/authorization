@@ -1,3 +1,5 @@
+//bun run start:dev
+
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';//NestFactory — главный инструмент NestJS, который умеет создавать экземпляры приложений.
 import { AppModule } from './app.module.js';//AppModule — корневой модуль вашего приложения (тот самый, где подключаются контроллеры, сервисы и база данных). ObserveInstrument — инструмент из модуля наблюдаемости @nestjs/observe, который был подключен ранее, он нужен для сбора логов и метрик.
