@@ -6,7 +6,7 @@ import { AppModule } from './app.module.js';//AppModule — корневой м�
 import { Redis } from 'ioredis';
 import cookieParser from 'cookie-parser';
 import { ValidationPipe } from '@nestjs/common';
-import * as session from 'express-session'
+import session from 'express-session'
 import { ms, StringValue } from '@/libs/common/utils/ms.utils.js'
 import { parseBoolean } from '@/libs/common/utils/parse-boolean.util.js'
 import { RedisStore } from 'connect-redis'
